@@ -1,16 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import BackButton from '../components/BackButton';
 import CategoryItemCard from '../components/CategoryItemCard';
 import { categoryItems } from '../data/categoryItems';
-import { cities } from '../data/cities';
-import { categories } from '../data/categories';
+import BackButton from '../components/BackButton';
 
 function CategoryDetails() {
   const { categoryId, cityId } = useParams();
-
-  const selectedCity = cities.find((city) => city.id === cityId);
-  const selectedCategory = categories.find((cat) => cat.id === categoryId);
 
   const filteredItems = categoryItems.filter(
     (item) => item.categoryId === categoryId && item.cityId === cityId
@@ -21,10 +16,10 @@ function CategoryDetails() {
        <div className="mb-4">
         <BackButton />
       </div>
-      
       <h1 className="text-3xl font-bold mb-6">
-        {selectedCategory?.title} in {selectedCity?.name}
+        Category Details
       </h1>
+
       {filteredItems.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {filteredItems.map((item) => (
@@ -33,6 +28,9 @@ function CategoryDetails() {
               name={item.name}
               description={item.description}
               imageUrl={item.imageUrl}
+              categoryId={categoryId}
+              cityId={cityId}
+              itemId={item.id}
             />
           ))}
         </div>

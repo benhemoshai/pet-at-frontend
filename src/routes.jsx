@@ -4,12 +4,12 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Cities from './pages/Cities';
 import CategoryDetails from './pages/CategoryDetails';
+import CategoryItemPage from './pages/CategoryItemPage';
 
 function AppRoutes() {
   return (
     <Router>
       <Routes>
-        {/* Layout wraps all routes */}
         <Route path="/" element={<Layout />}>
           {/* 🏠 Home */}
           <Route index element={<Home />} />
@@ -19,6 +19,9 @@ function AppRoutes() {
 
           {/* 📋 Category Details */}
           <Route path="categories/:categoryId/:cityId" element={<CategoryDetails />} />
+
+          {/* 📝 Category Item Details */}
+          <Route path="categories/:categoryId/:cityId/:itemId" element={<CategoryItemPage />} />
 
           {/* 🌟 Fallback */}
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
