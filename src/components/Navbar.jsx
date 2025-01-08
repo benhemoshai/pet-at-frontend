@@ -57,7 +57,7 @@ function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700 hover:text-green-500 focus:outline-none"
+          className="md:hidden text-gray-700 hover:text-green-500 focus:outline-none text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? '✖️' : '☰'}
@@ -69,7 +69,7 @@ function Navbar() {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="flex flex-col gap-4 p-4">
             {/* Search Bar Above Buttons */}
-            <div className="flex items-center border border-gray-300 rounded-lg px-3 py-1 bg-gray-50">
+            <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-gray-50">
               <input
                 type="text"
                 placeholder="Search..."
@@ -83,13 +83,13 @@ function Navbar() {
             {/* Navigation Buttons */}
             <button
               onClick={() => handleNavigate('/')}
-              className="text-gray-700 hover:text-green-500 font-medium text-lg"
+              className="text-gray-700 hover:text-green-500 font-medium text-xl py-2"
             >
               Home
             </button>
             <button
               onClick={() => handleNavigate('/about')}
-              className="text-gray-700 hover:text-green-500 font-medium text-lg"
+              className="text-gray-700 hover:text-green-500 font-medium text-xl py-2"
             >
               About
             </button>
