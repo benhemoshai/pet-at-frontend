@@ -26,11 +26,26 @@ function CategoryItemPage() {
         <BackButton />
       </div>
 
-      {/* Title & Description */}
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedItem.name}</h1>
-      <p className="text-lg text-gray-700 mb-6">{selectedItem.description}</p>
+      {/* Top Section: Title, Description, and Additional Info */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 items-start">
+        {/* Title & Description */}
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedItem.name}</h1>
+          <p className="text-lg text-gray-700 mb-4">{selectedItem.description}</p>
+        </div>
 
-      {/* Content Grid */}
+        {/* Additional Info */}
+        <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold mb-2">Additional Information</h2>
+          <ul className="text-gray-700 space-y-1">
+            <li><strong>📍 Address:</strong> {selectedItem.address || 'N/A'}</li>
+            <li><strong>🕒 Opening Hours:</strong> {selectedItem.hours || 'N/A'}</li>
+            <li><strong>📞 Contact:</strong> {selectedItem.contact || 'N/A'}</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Bottom Section: Image & Map */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Image Section */}
         <div className="h-[400px] rounded-lg overflow-hidden shadow-md">
@@ -51,16 +66,6 @@ function CategoryItemPage() {
             title="Location Map"
           ></iframe>
         </div>
-      </div>
-
-      {/* Additional Info */}
-      <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-2">Additional Information</h2>
-        <ul className="text-gray-700 space-y-1">
-          <li><strong>📍 Address:</strong> {selectedItem.address || 'N/A'}</li>
-          <li><strong>🕒 Opening Hours:</strong> {selectedItem.hours || 'N/A'}</li>
-          <li><strong>📞 Contact:</strong> {selectedItem.contact || 'N/A'}</li>
-        </ul>
       </div>
     </div>
   );
