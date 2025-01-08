@@ -16,7 +16,7 @@ function Layout() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="flex-grow px-4 py-8">
+      <main className="flex-grow px-4">
         <Outlet />
       </main>
     </div>

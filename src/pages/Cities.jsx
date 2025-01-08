@@ -23,8 +23,9 @@ function Cities() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Back Button */}
-      <BackButton />
+       <div className="mb-4">
+        <BackButton />
+      </div>
       
       <h1 className="text-3xl font-bold mb-6">
         Cities offering "{selectedCategory?.title || 'Category'}"
