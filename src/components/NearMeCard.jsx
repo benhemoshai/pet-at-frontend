@@ -6,7 +6,7 @@ function NearMeCard({ onNearMeClick, loading }) {
       className="group relative rounded-lg overflow-hidden shadow-md bg-green-50 hover:shadow-lg cursor-pointer"
       onClick={onNearMeClick}
     >
-      <div className="p-6 text-center">
+      <div className="p-6 w-full text-center">
         <h3 className="text-xl font-bold text-green-700">📍 Near Me</h3>
         <p className="text-sm text-gray-600">
           {loading ? 'Fetching your location...' : 'Find places near you'}

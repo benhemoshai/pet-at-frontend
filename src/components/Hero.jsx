@@ -1,4 +1,6 @@
 import logo from '../assets/PetAtLogo.jpg';
+import { useNavigate } from 'react-router-dom';
+import NearMeCard from './NearMeCard';
 
 function Hero() {
   const handleExploreClick = () => {
@@ -6,6 +8,12 @@ function Hero() {
     if (categoriesSection) {
       categoriesSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const navigate = useNavigate();
+
+  const handleNearMeNavigate = () => {
+    navigate('/near-me');
   };
 
   return (
@@ -32,6 +40,10 @@ function Hero() {
       >
         Explore Now
       </button>
+      {/* Near Me Button */}
+      <div className="w-1/2 px-4 py-4">
+        <NearMeCard onNearMeClick={handleNearMeNavigate} />
+      </div>
     </section>
   );
 }

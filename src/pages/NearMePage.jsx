@@ -2,12 +2,16 @@ import React from 'react';
 import useNearMe from '../hooks/useNearMe';
 import CategoryItemCard from '../components/CategoryItemCard';
 import NearMeCard from '../components/NearMeCard';
+import BackButton from '../components/BackButton';
 
 function NearMePage() {
   const { nearMeItems, handleNearMeClick, loading } = useNearMe();
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-4">
+        <BackButton />
+      </div>
       <h1 className="text-3xl font-bold mb-6">📍 Nearby Places</h1>
 
       {/* Near Me Card */}
@@ -27,6 +31,8 @@ function NearMePage() {
               categoryId={item.categoryId}
               cityId={item.cityId}
               itemId={item.id} // Pass the item ID
+              distance={item.distance} // Pass distance to the card
+
             />
           ))}
         </div>

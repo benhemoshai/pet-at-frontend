@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function CategoryItemCard({ name, description, imageUrl, categoryId, cityId, itemId }) {
+function CategoryItemCard({ name, description, imageUrl, categoryId, cityId, itemId, distance }) {
   const navigate = useNavigate();
 
-  const handleLearnMore = () => {
-    navigate(`/categories/${categoryId}/${cityId}/${itemId}`);
+  const handleCardClick = () => {
+    navigate(`/categories/${categoryId}/${cityId}/${itemId}`, { state: { distance } });
   };
 
   return (
-    <div className="group relative rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition-shadow" onClick={handleLearnMore}>
+    <div
+      className="group relative rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition-shadow cursor-pointer"
+      onClick={handleCardClick}
+    >
       {/* Image Section */}
       {imageUrl && (
         <div className="w-full h-48 overflow-hidden">
@@ -24,27 +27,17 @@ function CategoryItemCard({ name, description, imageUrl, categoryId, cityId, ite
       {/* Content Section */}
       <div className="p-4">
         <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-          {description}
-        </p>
-      </div>
-
-      {/* Action Button */}
-      <div className="p-4 pt-0">
-        <button
-          className="
-            w-full bg-green-500 text-white py-2 px-4 rounded-md font-medium 
-            hover:bg-green-600 transition"
-          onClick={handleLearnMore}
-        >
-          Learn More
-        </button>
+        <p className="text-sm text-gray-600 mt-1 line-clamp-2">{description}</p>
+        {distance !== undefined && (
+          <p className="text-sm text-green-600 mt-2">
+            📍 {distance.toFixed(2)} km away
+          </p>
+        )}
       </div>
     </div>
   );
 }
 
-// Prop Validation
 CategoryItemCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
@@ -52,11 +45,7 @@ CategoryItemCard.propTypes = {
   categoryId: PropTypes.string.isRequired,
   cityId: PropTypes.string.isRequired,
   itemId: PropTypes.string.isRequired,
-};
-
-// Default Props
-CategoryItemCard.defaultProps = {
-  imageUrl: '',
+  distance: PropTypes.number, // Distance is optional
 };
 
 export default CategoryItemCard;

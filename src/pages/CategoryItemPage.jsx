@@ -1,10 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import { categoryItems } from '../data/categoryItems';
 
 function CategoryItemPage() {
   const { categoryId, cityId, itemId } = useParams();
+  const location = useLocation(); // Access location state
+  const distance = location.state?.distance; // Retrieve distance from state
 
   const selectedItem = categoryItems.find(
     (item) => item.categoryId === categoryId && item.cityId === cityId && item.id === itemId
@@ -26,27 +28,21 @@ function CategoryItemPage() {
         <BackButton />
       </div>
 
-      {/* Top Section: Title, Description, and Additional Info */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 items-start">
-        {/* Title & Description */}
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedItem.name}</h1>
-          <p className="text-lg text-gray-700 mb-4">{selectedItem.description}</p>
-        </div>
-
-        {/* Additional Info */}
-        <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-2">Additional Information</h2>
-          <ul className="text-gray-700 space-y-1">
-            <li><strong>📍 Address:</strong> {selectedItem.address || 'N/A'}</li>
-            <li><strong>🕒 Opening Hours:</strong> {selectedItem.hours || 'N/A'}</li>
-            <li><strong>📞 Contact:</strong> {selectedItem.contact || 'N/A'}</li>
-          </ul>
-        </div>
+      {/* Title and Distance */}
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+        <h1 className="text-3xl font-bold text-gray-900">{selectedItem.name}</h1>
+        {distance !== undefined && (
+          <p className="text-green-600 text-lg mt-2 md:mt-0">
+            📍 {distance.toFixed(2)} km away
+          </p>
+        )}
       </div>
 
-      {/* Bottom Section: Image & Map */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Description */}
+      <p className="text-lg text-gray-700 mt-4">{selectedItem.description}</p>
+
+      {/* Content Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {/* Image Section */}
         <div className="h-[400px] rounded-lg overflow-hidden shadow-md">
           <img
@@ -66,6 +62,22 @@ function CategoryItemPage() {
             title="Location Map"
           ></iframe>
         </div>
+      </div>
+
+      {/* Additional Info */}
+      <div className="mt-8">
+        <h2 className="text-2xl font-semibold mb-2">Additional Information</h2>
+        <ul className="text-gray-700 space-y-1">
+          <li>
+            <strong>📍 Address:</strong> {selectedItem.address || 'N/A'}
+          </li>
+          <li>
+            <strong>🕒 Opening Hours:</strong> {selectedItem.hours || 'N/A'}
+          </li>
+          <li>
+            <strong>📞 Contact:</strong> {selectedItem.contact || 'N/A'}
+          </li>
+        </ul>
       </div>
     </div>
   );
