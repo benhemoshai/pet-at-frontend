@@ -17,8 +17,8 @@ function Hero() {
   };
 
   return (
-    <section className="relative bg-white-100 h-[500px] flex flex-col items-center justify-center text-center px-4">
-      {/* Logo */}
+<section className="relative bg-white-100 h-[500px] flex flex-col items-center justify-center text-center px-4 pt-16 md:pt-30">
+{/* Logo */}
       <img
         src={logo}
         alt="PetAt Logo"
