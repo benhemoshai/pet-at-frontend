@@ -5,6 +5,7 @@ import Cities from './pages/Cities';
 import CategoryDetails from './pages/CategoryDetails';
 import CategoryItemPage from './pages/CategoryItemPage';
 import SearchResults from './pages/SearchResults';
+import NearMePage from './pages/NearMePage';
 
 function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ function AppRoutes() {
           <Route path="categories/:categoryId/:cityId" element={<CategoryDetails />} />
           <Route path="categories/:categoryId/:cityId/:itemId" element={<CategoryItemPage />} />
           <Route path="search" element={<SearchResults />} />
+          <Route path="near-me" element={<NearMePage />} /> {/* Added Near Me Route */}
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Route>
       </Routes>

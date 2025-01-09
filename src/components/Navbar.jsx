@@ -34,7 +34,7 @@ function Navbar() {
   return (
     <nav className="bg-white shadow-md">
       {/* 🔗 Top Navbar */}
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div
           className="flex items-center gap-2 cursor-pointer"
@@ -49,27 +49,25 @@ function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-4 w-full max-w-2xl">
+        <div className="hidden md:flex items-center gap-4">
           {/* Navigation Buttons */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => handleNavigate('/')}
-              className="text-gray-700 hover:text-green-500 font-medium"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => handleNavigate('/about')}
-              className="text-gray-700 hover:text-green-500 font-medium"
-            >
-              About
-            </button>
-          </div>
+          <button
+            onClick={() => handleNavigate('/')}
+            className="text-gray-700 hover:text-green-500 font-medium"
+          >
+            Home
+          </button>
+          <button
+            onClick={() => handleNavigate('/about')}
+            className="text-gray-700 hover:text-green-500 font-medium"
+          >
+            About
+          </button>
 
           {/* Search Bar */}
           <form
             onSubmit={handleSearchSubmit}
-            className="flex-grow flex items-center border border-gray-300 rounded-lg px-3 py-1 bg-gray-50"
+            className="flex items-center border border-gray-300 rounded-lg px-3 py-1 bg-gray-50 w-96"
           >
             <input
               type="text"
@@ -91,7 +89,7 @@ function Navbar() {
         >
           {menuOpen ? (
             <svg
-              className="h-8 w-8 text-gray-700 hover:text-green-500"
+              className="h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -106,7 +104,7 @@ function Navbar() {
             </svg>
           ) : (
             <svg
-              className="h-8 w-8 text-gray-700 hover:text-green-500"
+              className="h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"

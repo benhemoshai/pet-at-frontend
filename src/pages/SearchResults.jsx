@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSearch } from '../context/SearchContext';
 import CategoryItemCard from '../components/CategoryItemCard';
 import BackButton from '../components/BackButton';

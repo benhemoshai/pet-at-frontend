@@ -10,15 +10,15 @@ export const categories = [
       imageUrl: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800',
     },
     {
-        id: 'vet',
+        id: 'veterinarians',
       title: 'Veterinarians',
       description: 'Professional healthcare for your pets',
       icon: Stethoscope,
       imageUrl: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&q=80&w=800',
     },
     {
-        id: 'pet-shops',
-      title: 'Pet Shops',
+        id: 'pet-stores',
+      title: 'Pet Stores',
       description: 'Everything your pet needs under one roof',
       icon: Store,
       imageUrl: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800',
